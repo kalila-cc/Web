@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>让你的图片变清晰 | kalila-cc</title>
+    <link rel="stylesheet" href="static/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <h1>让你的图片变清晰</h1>
+    <div id="app">
+      <div class="container">
+        <!-- LR -->
+        <div class="lr box">
+          <p>低分辨率图片</p>
+          <img class="large-img" v-if="lr_src" :src="lr_src">
+          <div v-else class="center default-view" @click="uploadImage">
+            <span class="img-button">点击上传图片</span>
+          </div>
+          <input id="upload-image" type="file" style="display: none;" accept="image/*" @change="uploadImageChange">
+        </div>
+        <!-- 充新上传 + 一键转换 + 下载图片 -->
+        <div>
+          <!-- 重新上传 -->
+          <div class="reupload-box sub-box center" :style="reupload_style_object" @click="reuploadImage">
+            <div>重新上传</div>
+          </div>
+          <!-- 一键转换 -->
+          <div class="transform-box sub-box center" :style="transform_style_object" @click="transformImage">
+            <div class="transform-button">{{ converting ? '正在转换' : '一键转换' }}</div>
+            <img src="static/arrow.png" width="70" height="35">
+          </div>
+          <!-- 下载图片 -->
+          <div class="download-box sub-box center" :style="download_style_object" @click="downloadImage">
+            <div>下载大图</div>
+          </div>
+        </div>
+        <!-- HR -->
+        <div class="hr box">
+          <p>高分辨率图片</p>
+          <img class="large-img" v-if="hr_src" :src="hr_src">
+          <div v-else class="center default-view">
+            <span class="img-button">请先上传图片</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="static/index.js"></script>
+  </body>
+</html>
