@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  min-width: 1080px;
+  min-height: 720px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.queue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
